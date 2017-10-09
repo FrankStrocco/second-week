@@ -77,12 +77,15 @@ Plularlizer
 
 function pluralForm(noun, num) {
   console.log(noun.slice(-1));
-  if (noun == "sheep" || "geese" || "children"){
-    return (num + " " + noun)
-  }
+
   if (noun.slice(-1) == "s" || noun.slice(-1) == "x") {
     return (num + " " + noun + "es");
   }
+
+  if (noun == "sheep" || noun == "geese" || noun == "children"){
+    return (num + " " + noun)
+  }
+
   if (num > 1) {
     return (num + " " + noun + "s");
   } else {
@@ -91,3 +94,39 @@ function pluralForm(noun, num) {
 }
 
 pluralForm("box", 2);
+
+
+//Purpose: create a function that picks random numbers between 1 and 100 and repeatedly asks questions
+//Signature:
+//Examples:
+function isNumber(userInput) {
+  var userNum = parseInt(userInput, 10);
+  if (userNum.toString == "NaN") {
+    var userInput = prompt("Guess what our random number is.");
+  } else {
+    return (userNum);
+  }
+}
+function hiLo (){
+  var randNum = Math.floor(Math.random() * 100);
+  console.log(randNum);
+
+  var userInput = prompt("Guess what our random number is.")
+    var userNum = isNumber(userInput);
+
+  var userTries = 0;
+  while (userNum != randNum){
+    if (userNum > randNum){
+      userNum = prompt(userNum + " is too high! Guess again!")
+    } else if (userNum < randNum){
+      userNum = prompt(userNum + " is too low! Guess again!")
+    } else {
+      alert("You Rock!!" + userNum + " is our number!!");
+    }
+    userTries += 1;
+    if (userTries >= 7) {
+      return alert("Bummer! too many tries. 7 was your limit!")
+    }
+  }
+  alert("You guessed our number!!");
+}
